@@ -48,18 +48,25 @@ const Stats = ({ stats }) => {
     },
   };
 
-  const labels = graph?.map((date) => date?.date);
-  const viewLabel = viewGraph?.map((date) => date?.date);
-  const subTotalLabels = subTotalgraph?.map((date) => date?.date);
+  const labels = data?.data?.map((date) => date?.date);
+  const viewLabel = viewDetails?.data?.map((viewDate) => viewDate?.date);
+  const subTotalLabels = subTotalDetails?.data?.map(
+    (subTotalDate) => subTotalDate?.date
+  );
 
-  const dateMonth = new Date().toLocaleString("en-us", {
-    month: "short",
-    year: "numeric",
-  });
-  console.log({ dateMonth });
+  // labels?.forEach((d) => {
+  //   if (!isNaN(Date.parse(d))) {
+  //     console.log(
+  //       new Date(d).toLocaleString("en-us", {
+  //         month: "short",
+  //         year: "numeric",
+  //       })
+  //     );
+  //   }
+  // });
 
   const Linedata = {
-    labels,
+    labels: labels,
     datasets: [
       {
         label: "Dataset 1",
@@ -71,7 +78,7 @@ const Stats = ({ stats }) => {
   };
 
   const Linedata2 = {
-    viewLabel,
+    labels: viewLabel,
     datasets: [
       {
         label: "Dataset 2",
@@ -83,7 +90,7 @@ const Stats = ({ stats }) => {
   };
 
   const Linedata3 = {
-    subTotalLabels,
+    labels: subTotalLabels,
     datasets: [
       {
         label: "Dataset 3",
@@ -93,10 +100,6 @@ const Stats = ({ stats }) => {
       },
     ],
   };
-
-  console.log({ Linedata });
-  console.log({ Linedata2 });
-  console.log({ Linedata3 });
 
   return (
     <>
