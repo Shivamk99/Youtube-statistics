@@ -11,8 +11,6 @@ const SubHeader = ({ stats }) => {
   const data = stats?.summary;
   const [value, setValue] = React.useState([null, null]);
 
-  console.log({ value });
-
   return (
     <>
       <Box display={"flex"} justifyContent={"space-between"} m={"30px 24px"}>
