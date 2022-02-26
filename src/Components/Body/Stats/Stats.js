@@ -93,10 +93,17 @@ const Stats = ({ stats }) => {
     labels: subTotalLabels,
     datasets: [
       {
-        label: "Dataset 3",
+        label: "Subscribed",
         data: subTotalgraph?.map((data) => data?.value1),
-        borderColor: " #31E498",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        fill: true,
+        backgroundColor: "rgba(75,192,192,0.2)",
+        borderColor: "rgba(75,192,192,1)",
+      },
+      {
+        label: "Non Subscribed",
+        data: subTotalgraph?.map((data) => data?.value2),
+        fill: false,
+        borderColor: "#FF5C00",
       },
     ],
   };
